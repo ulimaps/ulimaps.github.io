@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on ulisesmartin.com</title>
+    <link>http://ulisesmartin.com/blog/</link>
+    <description>Recent content in Blogs on ulisesmartin.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>© Copyright</copyright>
+    <lastBuildDate>Tue, 07 Sep 2021 15:15:54 -0500</lastBuildDate><atom:link href="http://ulisesmartin.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1</title>
+      <link>http://ulisesmartin.com/blog/medir_desplazamientos_horizontales_y_verticales_en_nubes_de_puntos_lidar_1/</link>
+      <pubDate>Tue, 07 Sep 2021 15:15:54 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/medir_desplazamientos_horizontales_y_verticales_en_nubes_de_puntos_lidar_1/</guid>
+      <description>¿Sabes cómo medir los desplazamientos horizontales y verticales en nubes de puntos LIDAR? A continuación te platico la primer parte de un procedimiento para hacerlo.</description>
+    </item>
+    
+    <item>
+      <title>Filosofia de pelicula 1</title>
+      <link>http://ulisesmartin.com/blog/filosofia_de_pelicula_1/</link>
+      <pubDate>Wed, 18 Aug 2021 20:35:31 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/filosofia_de_pelicula_1/</guid>
+      <description>En el youtube encontré una escena, que según es del episodio 3 de la temporada 2 de Mr. Robot, es una charla entre Elliot y Ray acerca de lo que, según él significa tener control de la vida.</description>
+    </item>
+    
+    <item>
+      <title>No hay mal que por bien no venga 1</title>
+      <link>http://ulisesmartin.com/blog/no_hay_mal_que_por_bien_no_venga_1/</link>
+      <pubDate>Wed, 18 Aug 2021 18:59:35 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/no_hay_mal_que_por_bien_no_venga_1/</guid>
+      <description>Me doy unos munitos para escribir acerca de alguno de los amores. No creo o no quisiera creer en el amor que sólo es muy arriba, del que se tienen grandes expectativas, que es infalible y que lo puede todo.</description>
+    </item>
+    
+    <item>
+      <title>Una de las razones de publicar sobre si mismo</title>
+      <link>http://ulisesmartin.com/blog/una_de_las_razones_de_publicar_sobre_si_mismo/</link>
+      <pubDate>Sat, 14 Aug 2021 11:31:36 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/una_de_las_razones_de_publicar_sobre_si_mismo/</guid>
+      <description>Una de la razones personas de publicar sobre sí mismo, en mi caso pues, podría ser el necesitar un poco de contacto con el exterior cuando se está muy ensimismado en, por ejemplo el estudio.</description>
+    </item>
+    
+    <item>
+      <title>Por_donde_empiezo_a_estudiar_LIDAR</title>
+      <link>http://ulisesmartin.com/blog/por_donde_empiezo_a_estudiar_lidar/</link>
+      <pubDate>Sun, 08 Aug 2021 08:21:04 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/por_donde_empiezo_a_estudiar_lidar/</guid>
+      <description>Cuando no sabes por dónde comenzar a estudiar sobre LIDAR por tu cuenta. Estos 4 puntos de cómo abordar el tema del LIDAR los comparto porque a veces uno no sabe por donde empezar.</description>
+    </item>
+    
+    <item>
+      <title>Sobreoferta de autoexposición</title>
+      <link>http://ulisesmartin.com/blog/sobre_oferta_de_autoexposicion/</link>
+      <pubDate>Sun, 18 Jul 2021 22:33:25 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/sobre_oferta_de_autoexposicion/</guid>
+      <description>Demanda de atención y sobreoferta de autoexposición Hay un incremento en la demanda atención y también sobre oferta de las posibilidades de la autoexposición.</description>
+    </item>
+    
+    <item>
+      <title>Definir misión</title>
+      <link>http://ulisesmartin.com/blog/definir_mision/</link>
+      <pubDate>Wed, 12 May 2021 14:07:19 -0500</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/definir_mision/</guid>
+      <description>La importancia de definir mi misión. A veces siento que no camina nada si es que antes no defino la misión de mi trabajo o de el chagarro.</description>
+    </item>
+    
+    <item>
+      <title>Speedway_1</title>
+      <link>http://ulisesmartin.com/blog/speedway_1/</link>
+      <pubDate>Sun, 21 Feb 2021 10:42:49 -0600</pubDate>
+      
+      <guid>http://ulisesmartin.com/blog/speedway_1/</guid>
+      <description>Speedway
+$ cd ../home No se mucho de inglés, tengo un tema atravesado ahí por mal pensar que ignorar esa lengua sería equivalente a resistir al imperio.</description>
+    </item>
+    
+  </channel>
+</rss>

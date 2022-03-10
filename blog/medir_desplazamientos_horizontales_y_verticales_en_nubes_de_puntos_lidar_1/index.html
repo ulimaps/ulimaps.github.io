@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1 - ulisesmartin.com</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1" />
+<meta property="og:description" content="¿Sabes cómo medir los desplazamientos horizontales y verticales en nubes de puntos LIDAR? A continuación te platico la primer parte de un procedimiento para hacerlo." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ulisesmartin.com/blog/medir_desplazamientos_horizontales_y_verticales_en_nubes_de_puntos_lidar_1/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-09-07T15:15:54-05:00" />
+<meta property="article:modified_time" content="2021-09-07T15:15:54-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1"/>
+<meta name="twitter:description" content="¿Sabes cómo medir los desplazamientos horizontales y verticales en nubes de puntos LIDAR? A continuación te platico la primer parte de un procedimiento para hacerlo."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://ulisesmartin.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://ulisesmartin.com/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="http://ulisesmartin.com/css/custom.css" />
+	<link rel="stylesheet" type="text/css" href="http://ulisesmartin.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="http://ulisesmartin.com/css/custom-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="http://ulisesmartin.com/js/main.js"></script>
+	<script src="http://ulisesmartin.com/js/abc.js"></script>
+	<script src="http://ulisesmartin.com/js/xyz.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://ulisesmartin.com/">
+	<h1 class="site-title"><a href="http://ulisesmartin.com/">ulisesmartin.com</a></h1>
+	<div class="site-description"><h2>Esta es mi página personal. Trabajo en <a href="http://geoytopo.com">http://geoytopo.com</a></h2><nav class="nav social">
+			<ul class="flat"><a href="https://twitter.com/ulisesmartin" title="Twitter"><i data-feather="twitter"></i></a><a href="https://instagram.com/soytopografo" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/ulises-ibarra-51a18516/" title="Linkedin"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">Acerca_de</a>
+			</li>
+			
+			<li>
+				<a href="/contacto">Contacto</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1</h1>
+			<div class="meta">Posted at &mdash; Sep 7, 2021</div>
+		</div>
+
+		<div class="markdown">
+			<p><strong>¿Sabes cómo medir los desplazamientos horizontales y verticales en nubes de puntos LIDAR?</strong> A continuación te platico la primer parte de un procedimiento para hacerlo.</p>
+<p><em><strong>Dudas, asesorías, cursos y presupuestos, por favor contáctame por mis redes sociales que arriba se listan o visita la página de mi despacho <a href="http://geoytopo.com">geoytopo.com</a></strong></em></p>
+<p><strong>Planteamiento</strong>: Cuando se escanéa con un sistema de mapeo móvil montado en un drone que tiene un movimiento planeado en líneas de vuelo, el LIDAR radía pulsos láser que se traducirán en una nube de puntos. Si se radía o mapea un mismo lugar u objeto desde dos líneas de vuelo contiguas: ¿Cuál sería la diferencias o desfase entre puntos pertenecientes a un mismo objeto mapeado desde dos líneas de vuelo diferentes?</p>
+<p><strong>Objetivo General</strong>: Cuantificar el desplazamiento horizontal y vertical entre puntos que definen un elemento.</p>
+<p><strong>Objetivo particular</strong>: Realizar la primer parte del procedimiento: Partir un archivo de nubes de puntos en formato &ldquo;LAS&rdquo; en archivos más pequeños que contengan una sola dirección de vuelo para definir las líneas de vuelo.</p>
+<p>Las líneas de vuelo que conseguí se muestran en la siguiente figura, separada cada uno por un color:</p>
+<figure>
+    <img src="/images/blog/museo_despues_partir_lineas1.png"/> <figcaption>
+            <h4>Cada color es una líneas de vuelo</h4>
+        </figcaption>
+</figure>
+
+<p>El siguiente procedimiento viene de revisar:</p>
+<ul>
+<li>
+<p>El blog de LAStools donde Martín Isenburg, el creador de LAStools, explica cómo comparar las diferencias entre los valores de elevaciones más bajas entre dos líneas de vuelo. Aquí el blog: <a href="https://rapidlasso.com/2021/03/04/strip-aligning-of-drone-lidar-flown-with-livox-mid-40-over-destroyed-mangrove/">Strip Aligning of Drone LiDAR flown with Livox MID-40 over destroyed Mangrove</a>.</p>
+</li>
+<li>
+<p>El Texto de las <a href="https://www.asprs.org/news/press-releases/press-release-archives/las-1-4-specification-approved-by-asprs-board.html">especificaciones del arcivo LAS versión 1.4 revisión 13</a>. Ya hay revisiones más nuevas. El texto en pdf en este enalce: <a href="https://www.asprs.org/wp-content/uploads/2010/12/LAS_1_4_r13.pdf">https://www.asprs.org/wp-content/uploads/2010/12/LAS_1_4_r13.pdf</a></p>
+</li>
+</ul>
+<p>Los datos de mi ejercicio los obtuve de un colega Topógrafo que además es Arquitecto, gracias Arq. Dante Loaeza.</p>
+<p>La <em>metodología para lograr el objetivo general</em> de cuantificar la diferencia vertical entre puntos de un mismo elemento pero mapeado desde dos líneas de vuelo contigua es el siguiente:</p>
+<ul>
+<li>Cortar un archivo, llamado archivo.LAS en pequeños archivos, uno por cada línea de vuelo.</li>
+<li>Obtener la densidad de puntos por pixel, por ejemplo 50 (cm) X 50 (cm) que pasaría a ser una especie de unidad de área.</li>
+<li>Cuantificar la diferencia vertical máxima entre los puntos más bajos en áreas mapeadas en común por más de una línea de vuelo.</li>
+<li>Ilustrar la diferencia:
+<ul>
+<li>Menor a 10 (cm) el área de coloreará en blanco</li>
+<li>Entre 10 cm y 25 cm área color rojo</li>
+<li>Mayor a 25 cm área color azul.</li>
+<li>Ajustar el desalineamiento entre líneas de vuelo. Esto no se hace con LAStools, si no con <a href="http://bayesmap.com/products/bayesstripalign/">BayesStripAlign</a> de BayesMap Solutions.</li>
+</ul>
+</li>
+</ul>
+<p>La <em>metodología para lograr el objetivo particular</em> de cortar un archivo LAS en líneas de vuelo, justo lo que haré en esta entrada al blog, y es la siguiente:</p>
+<ol start="0">
+<li>Contar con un archivo que al visualizarse se desarrolle de forma progresiva, coincidiendo con las líneas de vuelo a la hora de hacer el levantamiento.</li>
+<li>Visualizar la nube de puntos.</li>
+<li>Obtener información sobre el archivo2.LAS</li>
+<li>Obtener información de tiempo gps o gps_time, de un punto inicial y un punto final de la línea de vuelo o flight line, es decir conocer los intervalos de tiempo gps de las líneas de vuelo.</li>
+<li>Generar un archivo por cada línea de vuelo, del tipo &ldquo;Línea_De_Vuelo_NúmeroX.LAS&rdquo;, por medio de la extracción de puntos del archivo2.LAS que fueron capturados en cierto intervalo de tiempo gps, tiempo inicial y tiempo final, lo que definiría cada la línea de vuelo. Y también decirle a los nuevos archivos que son una línea de vuelo con un número identificador único para este levantamiento. Y esto no sólo se hace dándoles un nombre distinto a los archivos, si no diciéndole a cada punto que conforma este archivo que tiene un &ldquo;archivo de origen&rdquo;. La forma de decirle al punto de donde vino es otorgarle un número al un campo de cada puntos que se llama &ldquo;origen del punto&rdquo; o point_source, y este número será justamente la línea de vuelo. Entonces: &ldquo;archivo de origen&rdquo; = &ldquo;origen del punto&rdquo;.</li>
+</ol>
+<p>Y es todo, es sencillo, ¿no?</p>
+<p><strong>Nota: Seguramente hay formas más sencillas pero esta es la que hasta ahorita he encontrado.</strong></p>
+<p><em>Desarrollo de la metodología:</em></p>
+<ol start="0">
+<li>Contar con un archivo.LAS.</li>
+</ol>
+<p>Tuve dos archivos: archivo_1.LAS y archivo_2.LAS. El archivo_1.LAS estaba procesado de tal forma que al visualizarlo se iba desplegando un pedacito por aquí y luego otro por allá. En cambio el archivo_2.LAS iba desplegando visualmente de forma progresiva, coincidiendo con el progreso del levantamiento realizado, es decir que coincidía con las líneas de vuelo. Entonces, el archivo2.LAS es el que necesitamos.</p>
+<ol>
+<li>Visualizar la nube de puntos.</li>
+</ol>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lasview.exe \nubes\terra_las\cloud_ea164a9.las</code></pre></div>
+<figure>
+    <img src="/images/blog/museo_antes_partir_lineas1.png"/> <figcaption>
+            <h4>Visualización de puntos antes de partir archivo en líneas de vuelo</h4>
+        </figcaption>
+</figure>
+
+<ol start="2">
+<li>Obtener información sobre el archivo2.LAS y enviar el resultado a un archivo de texto para revisarlo tranquilamente:</li>
+</ol>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lasinfo \nubes\terra_las\cloud_ea164a9.las -otxt -odix _informe -odir \nubes\terra_las\</code></pre></div>
+<p>Y nos da un archivo txt, llamado: cloud_ea164a9_informe.txt. Ahí se puede ver hasta abajo una tabla como la que sigue:</p>
+<p>intensity           0        255</p>
+<p>return_number       1          3</p>
+<p>number_of_returns   1          3</p>
+<p>edge_of_flight_line 0          0</p>
+<p>scan_direction_flag 0          0</p>
+<p>classification      0          0</p>
+<p>scan_angle_rank   -35         35</p>
+<p>user_data           0          0</p>
+<p>point_source_ID     0          0</p>
+<p>gps_time 310218303.145946 310219073.269431</p>
+<p>¿Y eso qué nos dice?  Primero, si observamos el rango o intervalo de valores del penúltimo campo &ldquo;point_source_ID&rdquo;, vemos que va de cero a cero (0 a 0). Y como arriba expliqué el &ldquo;point_source&rdquo; y el &ldquo;file_source&rdquo; están relacionados para indicar de donde viene el punto y con esto también indicar las líneas de vuelo. ¿Que cómo sé esto? Pues lo averigüé leyendo un poquito las especificaciones de los formatos de archivo LAS, como a continuación podrás ver.</p>
+<p>En la página 6 de la especificación &ldquo;LAS_1_4_r13.pdf&rdquo; se leé:</p>
+<p><strong>File Source ID (ID del Archivo de Origen o ID del Archivo Fuente):</strong> Este campo debe establecerse en un valor comprendido entre el rango de 0 a 65,535. Si este archivo se derivó de una línea de vuelo original, este campo suele ser el número de línea de vuelo. Se interpreta un valor de cero (0) como que no se ha asignado una ID. En este caso, el software de procesamiento es libre de asignar un número. Note que este esquema permite que un proyecto LIDAR contenga hasta 65,535 fuentes únicas. Una fuente (File Source) puede ser una línea de vuelo original o puede ser el resultado de operaciones de combinación y/o extracción.</p>
+<p>Y en la página 12 se leé:</p>
+<p><strong>Point Source ID (ID de la Fuente del Punto):</strong> Este valor indica desde cual archivo se originó este punto. Los valores válidos para este campo son 1 a 65,535, incluso puede usarse cero para un caso especial discutido abajo. El valor numérico corresponde para el campo File Source ID desde el cual se originó el punto. El cero se está reservado como un convención de los implementadores del sistema. Un Point Source ID de zero implica que este punto fue originado en este archivo. Esto implica que el software de procesamiento debería establecer el Point Source ID igual que el File Source ID del archivo que contiene este punto en algún momento durante el procesamiento.</p>
+<p>Nuevamente: <strong>&ldquo;Esto implica que el software de procesamiento debería establecer el &ldquo;Point Source ID&rdquo; igual que el &ldquo;File Source ID&rdquo; del archivo que contiene este punto en algún momento durante el procesamiento.&quot;</strong></p>
+<p>En otras palabras, los puntos que provienen de un archivo tendrían un identificador &ldquo;Point Source ID&rdquo; con un valor igual al identificador del archivo del cual proviene &ldquo;File Source ID&rdquo;. Y cuando este valor es igual a cero &ldquo;0&rdquo; implicaría que el punto se generó en este archivo y que fue generado por el software de procesamiento. Algo como si fuera el &ldquo;Archivo Primario o Base o Primitivo o Madre o Padre o el archivo dosito, el origen de todo&rdquo;. Y que a partir este archivo primitivo pueden generarse nuevos archivos que al poneres un valor de numérico de 1 a 65,535 como identificadores del origen del punto, le estaremos estableciendo a su vez un identificador para cada línea de vuelo.</p>
+<ol start="3">
+<li>Obtener información sobre el tiempo gps incial y final de cada línea de vuelo:</li>
+</ol>
+<p>Un punto contenido en un archivo.LAS además de tener información sobre sus coordenadas, su point_source_ID también guarda información sobre su gps_time (tiempo GPS).</p>
+<p>Para identificar las líneas de vuelo, hay que visualizar repetidamente la nube de puntos observar cómo se va desarrollando cada línea de vuelo. Se puede hacer usando lasview con la opción &ldquo;-load_gps_time&rdquo;, para que nos permita visualizar información sobre el tiempo gps de cada punto del cual queramos saberlo. De las siguiente forma:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lasview.exe \nubes\terra_las\cloud_ea164a9.las -load_gps_time</code></pre></div>
+<figure>
+    <img src="/images/blog/museo_buscando_tiempo_gps_en_lineas_de_vuelo1.png"/> <figcaption>
+            <h4>Buscando tiempo gps para definir líneas de vuelo</h4>
+        </figcaption>
+</figure>
+
+<p>Luego con el puntero del mouse y presiona do la tecla &ldquo;i&rdquo; se mostrará información sobre el punto, incluyendo el tiempo gps. Lo haremos del inicio y final de cada línea de vuelo para averiguar los intervalos de tiempo:</p>
+<p>tiempo gps inicial - tiempo gps final</p>
+<p>310218303 - 310218390</p>
+<p>310218390 - 310218490</p>
+<p>310218490 - 310218590</p>
+<p>310218590 - 310218690</p>
+<p>310218690 - 310218790</p>
+<p>310218790 - 310218890</p>
+<p>310218890 - 310218990</p>
+<p>310218990 - 310219074</p>
+<p><strong>Nota: ¿Hay una forma más elegante de hacerlo? Si, obteniendo una grafica de densidad georreferenciada con LAStools, como más adelante explicaré, luego obtener las coordenadas de principio y fin de las líneas de vuelo que pueden inferirse por los surcos que deja la diferencia de densidad. Posteriormente habría que usar pdal y buscar un puntos cercanos a estos puntos que encontramos, que caigan dentro de un círculo concéntrico o una vecindad y elegir el punto que tenga tiempo gps cercano a lo que buscamos. Es una posibilidad.</strong></p>
+<ol start="4">
+<li>Generar un archivo por cada línea de vuelo. Esto es, generar archivos por extracción de puntos desde archivo2.LAS, usando el argumento que extraiga de todos los puntos que se encuentren en un intervalo de tiempo gps. También establecer un identificador de origen del punto = 1, 2, 3, 4, según la línea de vuelo de la que se trate. Para esto se usa la herramienta de LAStools llamada <em>lassplit</em>.</li>
+</ol>
+<p><em>Nota: es muy importante hacerlo con pdal. Pronto pdal será el pan de cada día porque está muy cerca de QGis.</em></p>
+<p><em>Nota: si parce poco elegante no hacer un script, lo siento, no se me ha dando esa facilidad por usar el shell o el commad del msdos. Así que lo haré de archivo en archivo.</em></p>
+<p><strong>¿Qué hace o qué está diciendo esta línea de comando? Dice:</strong> parte el archivo cloud_ea164a9.las generando a partir de él un archivo nuevo, en este archivo nuevo vas a guardar los puntos capturados en un tiempo mayor que 310218303 y menor que 310218390, luego a cada punto establece que su &ldquo;Point Source ID&rdquo; sea igual a 1, 2, 3,&hellip;,n, luego al archivo que resulte le veas a poner un sufijo de &ldquo;_cut&rdquo;, después lo vas a guardar con la extensión &ldquo;laz&rdquo; y el archivo lo vas a poner dentro del directorio: \nubes\terra_las\split.</p>
+<p><em>Nota: recordatorio, above es encima y below es debajo. Y así para cada uno de los intervalos</em></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
+-keep_gps_time_above 310218303 -keep_gps_time_below 310218390 ^
+-set_point_source 1 -odix _cut -olaz -odir \nubes\terra_las\split
+
+C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
+-keep_gps_time_above 310218390 -keep_gps_time_below 310218490 ^
+-set_point_source 2 -odix _cut -olaz -odir \nubes\terra_las\split
+
+...
+...
+...
+
+C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
+-keep_gps_time_above 310218990 -keep_gps_time_below 310219074 ^
+-set_point_source 8 -odix _cut -olaz -odir \nubes\terra_las\split</code></pre></div>
+<p>Y listo, ya deben de estar las líneas de vuelo separadas en archivos .LAZ independientes, dentro de la carpeta destino, sonrientes y esperando por nosotros para ser visualizadas cual perritos alegres, tiernos y meneando sus colitas de gusto. :)</p>
+<p>Para cerciorarse de que todo está como debiera, se usa nuevamente el comando  &ldquo;lasview&rdquo;, se le da click segundario y se elige la opción de rendererizar sólo por &ldquo;flight time&rdquo;, y debería a aparecernos lo que se muestra en la imagen de aquí abajito:</p>
+<figure>
+    <img src="/images/blog/museo_despues_partir_lineas1.png"/> <figcaption>
+            <h4>Buscando tiempo gps para definir líneas de vuelo</h4>
+        </figcaption>
+</figure>
+
+<p>Bueno, se me quedaron los ojitos rojitos de tanto estar en la compu pero ha valido la pena. Aclaro que nada inventé yo, que sólo trato de explicarlo al explićarmelo a mi mismo.</p>
+<p>Gracias por leer hasta aquí, si tienen dudas pueden contactarme por medio de las redes sociales cuya dirección se muestra en la parte superior de la página. Si gustas un curso de algún tema que te interese y yo conozca sólo contáctame y nos ponemos de acuerdo.</p>
+<p>Afortunadamente mucha gente como Martín Isenburg de LAStools, o Howard Buttler de pdal y una cantidad enorme de gente inteligente y generosa nos comparten su conocimiento y esfuerzo y con ello nos permiten darnos un banquete. Por mi parte, considero que la mejor forma de honrar este esfuerzo es estudiando y compartiendo en lengua mexicana sus saberes.</p>
+<p>Saludos a mis colegas y a mi cría que nunca va a leer esto, y a mi novia que si lo leé según yo, y a la Sra. Ernestina, besito a todos :°.</p>
+<p>Postre y sugerencia: leer todo de nuevo, escuchando música tristecita, como Morrissey o un tal Ed Maverick u otro muchacho llamado Kevin Kaarl o McEnroe. La tristeza sin ningún sentido más allá de la absurda tristeza existencial misma, ayuda a entender mejor las nubes de puntos, tienen mi palabra, prueben. Escuchen esta poderosa rola de Mauri Tapia de Los Retos, chulada: 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/VRQDOFaFqWk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="Los Retros - Someone To Spend Time With"></iframe>
+</div>
+</p>
+<p>Buen provecho.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
