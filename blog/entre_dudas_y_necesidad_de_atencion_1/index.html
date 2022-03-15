@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Entre dudas y necesidad de atencion 1 - ulisesmartin.com</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Entre dudas y necesidad de atencion 1" />
+<meta property="og:description" content="Estoy lleno de dudas, desde existenciales, técnicas y pŕacticas. Sobre lo importante. Ya no se si esto que sigue es un intento por lograr una forma de vida, una duda legítima o una excusa que tiene por objeto distraerme de lo realmente importante." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ulimaps.github.io/blog/entre_dudas_y_necesidad_de_atencion_1/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-03-14T21:50:43-06:00" />
+<meta property="article:modified_time" content="2022-03-14T21:50:43-06:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Entre dudas y necesidad de atencion 1"/>
+<meta name="twitter:description" content="Estoy lleno de dudas, desde existenciales, técnicas y pŕacticas. Sobre lo importante. Ya no se si esto que sigue es un intento por lograr una forma de vida, una duda legítima o una excusa que tiene por objeto distraerme de lo realmente importante."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ulimaps.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ulimaps.github.io/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/custom.css" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/custom-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://ulimaps.github.io/js/main.js"></script>
+	<script src="https://ulimaps.github.io/js/abc.js"></script>
+	<script src="https://ulimaps.github.io/js/xyz.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://ulimaps.github.io/">
+	<h1 class="site-title"><a href="https://ulimaps.github.io/">ulisesmartin.com</a></h1>
+	<div class="site-description"><h2>Esta es mi página personal. Trabajo en <a href="http://geoytopo.com">http://geoytopo.com</a></h2><nav class="nav social">
+			<ul class="flat"><a href="https://twitter.com/ulisesmartin" title="Twitter"><i data-feather="twitter"></i></a><a href="https://instagram.com/soytopografo" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/ulises-ibarra-51a18516/" title="Linkedin"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">Acerca_de</a>
+			</li>
+			
+			<li>
+				<a href="/contacto">Contacto</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Entre dudas y necesidad de atencion 1</h1>
+			<div class="meta">Posted at &mdash; Mar 14, 2022</div>
+		</div>
+
+		<div class="markdown">
+			<p>Estoy lleno de dudas, desde existenciales, técnicas y pŕacticas. Sobre lo importante. Ya no se si esto que sigue es un intento por lograr una forma de vida, una duda legítima o una excusa que tiene por objeto distraerme de lo realmente importante. Pero por si acaso, de esto va lo que para el mundo es obvio y que para mi es oscuro:</p>
+<p>Comparando un archivo de una nube de puntos proveniente de DJI Terra y otro archivo luego de hacerle un filtro en pdal (filters.outlier) veo que hay una diferencia entre el factor de escal y el offset.</p>
+<p>El filtro en un archivo &ldquo;outlier_statistical.json&rdquo; sería este:</p>
+<p>[
+&ldquo;cloud_78c2634818850f1.las&rdquo;,
+{
+&ldquo;type&rdquo;:&ldquo;filters.outlier&rdquo;,
+&ldquo;method&rdquo;:&ldquo;statistical&rdquo;,
+&ldquo;mean_k&rdquo;:12,
+&ldquo;multiplier&rdquo;:2.2
+},
+&ldquo;cloud_78c2634818850f1_noised.las&rdquo;
+]</p>
+<p>La ejeución seria:</p>
+<p>$ pdal pipeline .\outlier_statistical.json</p>
+<p>Entonces lasinfo con -histo intensity 16 -histo z 5:</p>
+<table>
+<thead>
+<tr>
+<th>cloud_78c2634818850f1.las</th>
+<th>loud_78c2634818850f1_noised.las</th>
+<th>Duda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lasinfo -i f:\nubes\tren\cloud_78c2634818850f1.las -otxt -odix _con_histo -odir f:\nubes\tren\info\ -histo intensity 16 -histo z 5</td>
+<td>lasinfo.exe \nubes\tren_maya\cloud_78c2634818850f1_noised.las -otxt -odix _con_histo -odir f:\nubes\tren\info\ -histo intensity 16 -histo z 5</td>
+<td></td>
+</tr>
+<tr>
+<td>scale factor x y z:         0.0001 0.0001 0.0001</td>
+<td>scale factor x y z:         0.01 0.01 0.01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>offset x y z:               483415.6290059014 2278015.6279708305 46.799277914468881</td>
+<td>offset x y z:               0 0 0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>min x y z:                  482956.0910 2277610.7170 14.5594</td>
+<td>min x y z:                  482956.09 2277610.72 14.56</td>
+<td></td>
+</tr>
+<tr>
+<td>max x y z:                  483875.1670 2278420.5389 79.0391</td>
+<td>max x y z:                  483875.17 2278420.54 79.04</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>variable length header record 1 of 3:</td>
+<td>variable length header record 2 of 2:</td>
+<td></td>
+</tr>
+<tr>
+<td>reserved             43707</td>
+<td>reserved             0</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>reporting minimum and maximum for all LAS point record entries ..</td>
+<td>reporting minimum and maximum for all LAS point record entries ..</td>
+<td></td>
+</tr>
+<tr>
+<td>X            -4595380    4595380</td>
+<td>X            48295609   48387517</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Y            -4049110    4049110</td>
+<td>Y           227761072  227842054</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Z             -322399     322399</td>
+<td>Z                1456       7904</td>
+<td>5</td>
+</tr>
+<tr>
+<td>gps_time 325359530.048202 325360725.767503</td>
+<td>gps_time 325359530.048202 325360725.767503</td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>WARNING: range violates GPS week time specified by global encoding bit 0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>histogram of classification of points:</td>
+<td>histogram of classification of points:</td>
+<td></td>
+</tr>
+<tr>
+<td>229136701  never classified (0)</td>
+<td>221520924  never classified (0)</td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>7615777  noise (7)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WARNING: real max y larger than header max y by 0.000032</td>
+<td>WARNING: real max x larger than header max x by 0.002994</td>
+<td>7</td>
+</tr>
+<tr>
+<td>WARNING: real min y smaller than header min y by 0.000032</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WARNING: real max z larger than header max z by 0.000031</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WARNING: real min z smaller than header min z by 0.000031</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En ambos casos ocurre algo como esto:</p>
+<p>WARNING: stored resolution of min_x not compatible with x_offset and x_scale_factor: 482956.09102576884
+WARNING: stored resolution of min_y not compatible with y_offset and y_scale_factor: 2277610.7170027224
+WARNING: stored resolution of min_z not compatible with z_offset and z_scale_factor: 14.559409263034066
+WARNING: stored resolution of max_x not compatible with x_offset and x_scale_factor: 483875.1669860339
+WARNING: stored resolution of max_y not compatible with y_offset and y_scale_factor: 2278420.5389389391
+WARNING: stored resolution of max_z not compatible with z_offset and z_scale_factor: 79.039146565903692</p>
+<p>Duda 1.- ¿Porqué el scale factor disminuye? ¿Habría que indicarle la precisión de una décima de milímietro para que se conserve?</p>
+<p>Duda 2.- ¿Porqué igualmente se disminuye el offset al grado de hacerse cero?</p>
+<p>Duda 3.- ¿Qué pas+o aquí?</p>
+<p>Duda 4.- ¿Qué es esto de &ldquo;WARNING: range violates GPS week time specified by global encoding bit 0&rdquo;?</p>
+<p>Duda 5.- ¿Qué significa esto de real max x larger than header max v by 0.002994, y los demás valores?</p>
+<p>Lo iré resolviendo.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
