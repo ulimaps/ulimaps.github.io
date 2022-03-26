@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Visualizar_nube_de_puntos_en_web_1 - ulisesmartin.com</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Visualizar_nube_de_puntos_en_web_1" />
+<meta property="og:description" content="PotreeConverter y los 3 pasos para visualizar una nube de puntos en el navegador Usando PotreeConverter o LAStools podemos convertir un archivo LAS a uno que permita ser visto desde un navegador." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ulimaps.github.io/blog/visualizar_nube_de_puntos_en_web_1/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-03-26T11:53:12-06:00" />
+<meta property="article:modified_time" content="2022-03-26T11:53:12-06:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Visualizar_nube_de_puntos_en_web_1"/>
+<meta name="twitter:description" content="PotreeConverter y los 3 pasos para visualizar una nube de puntos en el navegador Usando PotreeConverter o LAStools podemos convertir un archivo LAS a uno que permita ser visto desde un navegador."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ulimaps.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ulimaps.github.io/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/custom.css" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/custom-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://ulimaps.github.io/js/main.js"></script>
+	<script src="https://ulimaps.github.io/js/abc.js"></script>
+	<script src="https://ulimaps.github.io/js/xyz.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://ulimaps.github.io/">
+	<h1 class="site-title"><a href="https://ulimaps.github.io/">ulisesmartin.com</a></h1>
+	<div class="site-description"><h2>Esta es mi página personal. Trabajo en <a href="http://geoytopo.com">http://geoytopo.com</a></h2><nav class="nav social">
+			<ul class="flat"><a href="https://twitter.com/ulisesmartin" title="Twitter"><i data-feather="twitter"></i></a><a href="https://instagram.com/soytopografo" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/ulises-ibarra-51a18516/" title="Linkedin"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">Acerca_de</a>
+			</li>
+			
+			<li>
+				<a href="/contacto">Contacto</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Visualizar_nube_de_puntos_en_web_1</h1>
+			<div class="meta">Posted at &mdash; Mar 26, 2022</div>
+		</div>
+
+		<div class="markdown">
+			<h2 id="potreeconverter-y-los-3-pasos-para-visualizar-una-nube-de-puntos-en-el-navegador">PotreeConverter y los 3 pasos para visualizar una nube de puntos en el navegador</h2>
+<p>Usando PotreeConverter o LAStools podemos convertir un archivo LAS a uno que permita ser visto desde un navegador.</p>
+<p><a href="https://https://github.com/potree/potree/">Potree</a>, es un rederizador de nubes de puntos libre y de código abierto y LAStools es una colección de herramientas para tratamiento de nubes de puntos.</p>
+<h3 id="los-tres-pasos-son">Los tres pasos son:</h3>
+<ol>
+<li>Convertir archivo LAS &ndash;&gt; &ldquo;directorio convertido&rdquo; con archivos de potree.</li>
+<li>Contar con un servidor web para ofrecer el contenido.</li>
+<li>Colocar el &ldquo;directorio convertido&rdquo; en directorio www, htdos o donde será servido para acceder a él accesible por el navegador.</li>
+</ol>
+<p>A continuación se explica cómo usar PotreeConverter (Método A), para convertir el archivo con estensión &ldquo;LAS&rdquo; a un &ldquo;&lt;Directorio de Potree&gt;&rdquo;, y en otra publicación cómo usar laspublish (Método B).</p>
+<h4 id="método-a-con-potreeconverter">Método A, Con PotreeConverter:</h4>
+<p><strong>1. Convertir archivo LAS &ndash;&gt; &ldquo;directorio convertido&rdquo; con archivos de potree:</strong></p>
+<ul>
+<li>Descargar PotreeConverter (<a href="https://github.com/potree/PotreeConverter/releases">https://github.com/potree/PotreeConverter/releases</a>)</li>
+<li>Ejecutar el comando en una terminal, con sigueinte la sintaxis:</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">// En su forma más básica:
+PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt;
+// Considerando el método de muestreo: random o poisson disc:
+PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt; -m random
+// Y tomando en cuenta los nombres de directorios de entrada y salida:
+.\PotreeConverter.exe C:\pointclouds\data.las -o C:\pointclouds\data_converted</code></pre></div>
+<p><strong>2. Contar con un servidor web para ofrecer el contenido.</strong></p>
+<ul>
+<li>En el caso de windows podemos usar XAMPP, para más información: <a href="https://www.apachefriends.org/index.html">https://www.apachefriends.org/index.html</a></li>
+</ul>
+<p><strong>3. Copiar el contendio en la carpeta donde se sirven los archivos para la web. Como uso XAMPP, sería algo así:</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd"><span style="color:#719e07">copy</span> C:\pointclouds\data_converted C:\xampp\htdocs</code></pre></div>
+<p>Ejemplo 1, usando PotreeConverter 1.7:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">C:\PotreeConverter_1.7<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_1 -p index</span></code></pre></div>
+<figure>
+    <img src="/images/blog/PotreeConverter1-7_ejemplo1.png"/> <figcaption>
+            <h4>Ejecución en el cmd de PotreeConverter 1.7</h4>
+        </figcaption>
+</figure>
+
+<p>El resultado es un director de salida &ldquo;convertido_a_potree_1&rdquo; con un archivo index.html que será visualizado en el navegador, como se muestra a continuación:</p>
+<figure>
+    <img src="/images/blog/PotreeConverter1.7_visualizando_index_1.jpg"/> <figcaption>
+            <h4>Visualización de nube de puntos en Potree</h4>
+        </figcaption>
+</figure>
+
+<p>Ejemplo 2, eligiendo el formato de salida como archivo LAZ en lugar de BINARY:
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">C:\PotreeConverter_1.7<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_2 --output-format LAZ -p index</span></code></pre></div></p>
+<p>Ejemplo 3, usando PotreeConverter 2.1:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">C:\PotreeConverter_2.1_x64_windows<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_3 -p index</span></code></pre></div>
+<p><img src="./images/blog/PotreeConverter2-1_ejemplo1.png" alt="PotreeConverter2-1_ejemplo1.png"></p>
+<p><strong>Sobre el tamaño del archivo resultante:</strong></p>
+<p>107 MB &ndash; archivo original en .LAZ</p>
+<p>431 MB &ndash; convertido_a_potree_1 (sin compresióncon PotreeConverter1.7)</p>
+<p>167 MB &ndash; convertido_a_potree_2 (con compresión con PotreeConverter1.7)</p>
+<p>778 MB &ndash; convertido_a_potree_3 (sin compresión con PotreeConverter2.1)</p>
+<p><strong>Diferencia entre versiones de PotreeConverter 1.7 y 2.1</strong></p>
+<ul>
+<li>Hasta el día de hoy, miércoles 24 de febrero de 2021, hay dos versiones: 1.7 y 2.1.</li>
+<li>La versión 1.7 parte el archivo en cachitos, por ejemplo, el directorio &ldquo;r&rdquo; en: convertido_a_potree_1\pointclouds\index\data\r contiene muchos subdierctios con archivos .bin y .hrc.</li>
+<li>Versión 2.1, la opción de compresión aún no está disponible.</li>
+<li>La versión 2.1 es de 10 a 50 veces más rápida, al ejecutarse sobre una unidad de estado sólido SSD.</li>
+<li>La versión 2.1 genera tres archivos, en lugar de muchos archivos y directorios, como se muestra a continuación:</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd"> Directorio de C:\xampp\htdocs\convertido_a_potree_3\pointclouds\index
+
+24/02/2021  09:05 p. m.    &lt;DIR&gt;          .
+24/02/2021  09:05 p. m.    &lt;DIR&gt;          ..
+24/02/2021  09:05 p. m.           182,050 hierarchy.bin
+24/02/2021  09:05 p. m.             2,372 metadata.json
+24/02/2021  09:05 p. m.       762,141,695 octree.bin
+               3 archivos    762,326,117 bytes
+               2 dirs  201,620,078,592 bytes libres</code></pre></div>
+<h4 id="método-b-con-laspublish">Método B, con laspublish:</h4>
+<p>Con el poderosísimo LASTools, proximamente.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
