@@ -9,7 +9,6 @@
 <meta property="og:url" content="https://ulimaps.github.io/blog/medir_desplazamientos_horizontales_y_verticales_en_nubes_de_puntos_lidar_1/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-09-07T15:15:54-05:00" />
 <meta property="article:modified_time" content="2021-09-07T15:15:54-05:00" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1"/>
 <meta name="twitter:description" content="¿Sabes cómo medir los desplazamientos horizontales y verticales en nubes de puntos LIDAR? A continuación te platico la primer parte de un procedimiento para hacerlo."/>
@@ -82,8 +81,7 @@
 <p><strong>Objetivo General</strong>: Cuantificar el desplazamiento horizontal y vertical entre puntos que definen un elemento.</p>
 <p><strong>Objetivo particular</strong>: Realizar la primer parte del procedimiento: Partir un archivo de nubes de puntos en formato &ldquo;LAS&rdquo; en archivos más pequeños que contengan una sola dirección de vuelo para definir las líneas de vuelo.</p>
 <p>Las líneas de vuelo que conseguí se muestran en la siguiente figura, separada cada uno por un color:</p>
-<figure>
-    <img src="/images/blog/museo_despues_partir_lineas1.png"/> <figcaption>
+<figure><img src="/images/blog/museo_despues_partir_lineas1.png"/><figcaption>
             <h4>Cada color es una líneas de vuelo</h4>
         </figcaption>
 </figure>
@@ -130,9 +128,8 @@
 <ol>
 <li>Visualizar la nube de puntos.</li>
 </ol>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lasview.exe \nubes\terra_las\cloud_ea164a9.las</code></pre></div>
-<figure>
-    <img src="/images/blog/museo_antes_partir_lineas1.png"/> <figcaption>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>C:\LAStools\bin&gt;lasview.exe \nubes\terra_las\cloud_ea164a9.las</span></span></code></pre></div>
+<figure><img src="/images/blog/museo_antes_partir_lineas1.png"/><figcaption>
             <h4>Visualización de puntos antes de partir archivo en líneas de vuelo</h4>
         </figcaption>
 </figure>
@@ -140,7 +137,7 @@
 <ol start="2">
 <li>Obtener información sobre el archivo2.LAS y enviar el resultado a un archivo de texto para revisarlo tranquilamente:</li>
 </ol>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lasinfo \nubes\terra_las\cloud_ea164a9.las -otxt -odix _informe -odir \nubes\terra_las\</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>C:\LAStools\bin&gt;lasinfo \nubes\terra_las\cloud_ea164a9.las -otxt -odix _informe -odir \nubes\terra_las\</span></span></code></pre></div>
 <p>Y nos da un archivo txt, llamado: cloud_ea164a9_informe.txt. Ahí se puede ver hasta abajo una tabla como la que sigue:</p>
 <p>intensity           0        255</p>
 <p>return_number       1          3</p>
@@ -157,16 +154,15 @@
 <p><strong>File Source ID (ID del Archivo de Origen o ID del Archivo Fuente):</strong> Este campo debe establecerse en un valor comprendido entre el rango de 0 a 65,535. Si este archivo se derivó de una línea de vuelo original, este campo suele ser el número de línea de vuelo. Se interpreta un valor de cero (0) como que no se ha asignado una ID. En este caso, el software de procesamiento es libre de asignar un número. Note que este esquema permite que un proyecto LIDAR contenga hasta 65,535 fuentes únicas. Una fuente (File Source) puede ser una línea de vuelo original o puede ser el resultado de operaciones de combinación y/o extracción.</p>
 <p>Y en la página 12 se leé:</p>
 <p><strong>Point Source ID (ID de la Fuente del Punto):</strong> Este valor indica desde cual archivo se originó este punto. Los valores válidos para este campo son 1 a 65,535, incluso puede usarse cero para un caso especial discutido abajo. El valor numérico corresponde para el campo File Source ID desde el cual se originó el punto. El cero se está reservado como un convención de los implementadores del sistema. Un Point Source ID de zero implica que este punto fue originado en este archivo. Esto implica que el software de procesamiento debería establecer el Point Source ID igual que el File Source ID del archivo que contiene este punto en algún momento durante el procesamiento.</p>
-<p>Nuevamente: <strong>&ldquo;Esto implica que el software de procesamiento debería establecer el &ldquo;Point Source ID&rdquo; igual que el &ldquo;File Source ID&rdquo; del archivo que contiene este punto en algún momento durante el procesamiento.&quot;</strong></p>
+<p>Nuevamente: <strong>&ldquo;Esto implica que el software de procesamiento debería establecer el &ldquo;Point Source ID&rdquo; igual que el &ldquo;File Source ID&rdquo; del archivo que contiene este punto en algún momento durante el procesamiento.&rdquo;</strong></p>
 <p>En otras palabras, los puntos que provienen de un archivo tendrían un identificador &ldquo;Point Source ID&rdquo; con un valor igual al identificador del archivo del cual proviene &ldquo;File Source ID&rdquo;. Y cuando este valor es igual a cero &ldquo;0&rdquo; implicaría que el punto se generó en este archivo y que fue generado por el software de procesamiento. Algo como si fuera el &ldquo;Archivo Primario o Base o Primitivo o Madre o Padre o el archivo dosito, el origen de todo&rdquo;. Y que a partir este archivo primitivo pueden generarse nuevos archivos que al poneres un valor de numérico de 1 a 65,535 como identificadores del origen del punto, le estaremos estableciendo a su vez un identificador para cada línea de vuelo.</p>
 <ol start="3">
 <li>Obtener información sobre el tiempo gps incial y final de cada línea de vuelo:</li>
 </ol>
 <p>Un punto contenido en un archivo.LAS además de tener información sobre sus coordenadas, su point_source_ID también guarda información sobre su gps_time (tiempo GPS).</p>
 <p>Para identificar las líneas de vuelo, hay que visualizar repetidamente la nube de puntos observar cómo se va desarrollando cada línea de vuelo. Se puede hacer usando lasview con la opción &ldquo;-load_gps_time&rdquo;, para que nos permita visualizar información sobre el tiempo gps de cada punto del cual queramos saberlo. De las siguiente forma:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lasview.exe \nubes\terra_las\cloud_ea164a9.las -load_gps_time</code></pre></div>
-<figure>
-    <img src="/images/blog/museo_buscando_tiempo_gps_en_lineas_de_vuelo1.png"/> <figcaption>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>C:\LAStools\bin&gt;lasview.exe \nubes\terra_las\cloud_ea164a9.las -load_gps_time</span></span></code></pre></div>
+<figure><img src="/images/blog/museo_buscando_tiempo_gps_en_lineas_de_vuelo1.png"/><figcaption>
             <h4>Buscando tiempo gps para definir líneas de vuelo</h4>
         </figcaption>
 </figure>
@@ -189,25 +185,24 @@
 <p><em>Nota: si parce poco elegante no hacer un script, lo siento, no se me ha dando esa facilidad por usar el shell o el commad del msdos. Así que lo haré de archivo en archivo.</em></p>
 <p><strong>¿Qué hace o qué está diciendo esta línea de comando? Dice:</strong> parte el archivo cloud_ea164a9.las generando a partir de él un archivo nuevo, en este archivo nuevo vas a guardar los puntos capturados en un tiempo mayor que 310218303 y menor que 310218390, luego a cada punto establece que su &ldquo;Point Source ID&rdquo; sea igual a 1, 2, 3,&hellip;,n, luego al archivo que resulte le veas a poner un sufijo de &ldquo;_cut&rdquo;, después lo vas a guardar con la extensión &ldquo;laz&rdquo; y el archivo lo vas a poner dentro del directorio: \nubes\terra_las\split.</p>
 <p><em>Nota: recordatorio, above es encima y below es debajo. Y así para cada uno de los intervalos</em></p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
--keep_gps_time_above 310218303 -keep_gps_time_below 310218390 ^
--set_point_source 1 -odix _cut -olaz -odir \nubes\terra_las\split
-
-C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
--keep_gps_time_above 310218390 -keep_gps_time_below 310218490 ^
--set_point_source 2 -odix _cut -olaz -odir \nubes\terra_las\split
-
-...
-...
-...
-
-C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
--keep_gps_time_above 310218990 -keep_gps_time_below 310219074 ^
--set_point_source 8 -odix _cut -olaz -odir \nubes\terra_las\split</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
+</span></span><span style="display:flex;"><span>-keep_gps_time_above <span style="color:#2aa198">310218303</span> -keep_gps_time_below <span style="color:#2aa198">310218390</span> ^
+</span></span><span style="display:flex;"><span>-set_point_source <span style="color:#2aa198">1</span> -odix _cut -olaz -odir \nubes\terra_las\split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
+</span></span><span style="display:flex;"><span>-keep_gps_time_above <span style="color:#2aa198">310218390</span> -keep_gps_time_below <span style="color:#2aa198">310218490</span> ^
+</span></span><span style="display:flex;"><span>-set_point_source <span style="color:#2aa198">2</span> -odix _cut -olaz -odir \nubes\terra_las\split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>C:\LAStools\bin&gt;lassplit -i \nubes\terra_las\cloud_ea164a9.las ^
+</span></span><span style="display:flex;"><span>-keep_gps_time_above <span style="color:#2aa198">310218990</span> -keep_gps_time_below <span style="color:#2aa198">310219074</span> ^
+</span></span><span style="display:flex;"><span>-set_point_source <span style="color:#2aa198">8</span> -odix _cut -olaz -odir \nubes\terra_las\split</span></span></code></pre></div>
 <p>Y listo, ya deben de estar las líneas de vuelo separadas en archivos .LAZ independientes, dentro de la carpeta destino, sonrientes y esperando por nosotros para ser visualizadas cual perritos alegres, tiernos y meneando sus colitas de gusto. :)</p>
 <p>Para cerciorarse de que todo está como debiera, se usa nuevamente el comando  &ldquo;lasview&rdquo;, se le da click segundario y se elige la opción de rendererizar sólo por &ldquo;flight time&rdquo;, y debería a aparecernos lo que se muestra en la imagen de aquí abajito:</p>
-<figure>
-    <img src="/images/blog/museo_despues_partir_lineas1.png"/> <figcaption>
+<figure><img src="/images/blog/museo_despues_partir_lineas1.png"/><figcaption>
             <h4>Buscando tiempo gps para definir líneas de vuelo</h4>
         </figcaption>
 </figure>

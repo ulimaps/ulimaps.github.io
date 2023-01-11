@@ -9,7 +9,6 @@
 <meta property="og:url" content="https://ulimaps.github.io/blog/visualizar_nube_de_puntos_en_web_1/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-03-26T11:53:12-06:00" />
 <meta property="article:modified_time" content="2022-03-26T11:53:12-06:00" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Visualizar nube de puntos en web 1"/>
 <meta name="twitter:description" content="PotreeConverter y los 3 pasos para visualizar una nube de puntos en el navegador Usando PotreeConverter o LAStools podemos convertir un archivo LAS a uno que permita ser visto desde un navegador."/>
@@ -92,37 +91,35 @@
 <li>Descargar PotreeConverter (<a href="https://github.com/potree/PotreeConverter/releases">https://github.com/potree/PotreeConverter/releases</a>)</li>
 <li>Ejecutar el comando en una terminal, con sigueinte la sintaxis:</li>
 </ul>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">// En su forma más básica:
-PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt;
-// Considerando el método de muestreo: random o poisson disc:
-PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt; -m random
-// Y tomando en cuenta los nombres de directorios de entrada y salida:
-.\PotreeConverter.exe C:\pointclouds\data.las -o C:\pointclouds\data_converted</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>// En su forma más básica:
+</span></span><span style="display:flex;"><span>PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt;
+</span></span><span style="display:flex;"><span>// Considerando el método de muestreo: random o poisson disc:
+</span></span><span style="display:flex;"><span>PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt; -m random
+</span></span><span style="display:flex;"><span>// Y tomando en cuenta los nombres de directorios de entrada y salida:
+</span></span><span style="display:flex;"><span>.\PotreeConverter.exe C:\pointclouds\data.las -o C:\pointclouds\data_converted</span></span></code></pre></div>
 <p><strong>2. Contar con un servidor web para ofrecer el contenido.</strong></p>
 <ul>
 <li>En el caso de windows podemos usar XAMPP, para más información: <a href="https://www.apachefriends.org/index.html">https://www.apachefriends.org/index.html</a></li>
 </ul>
 <p><strong>3. Copiar el contendio en la carpeta donde se sirven los archivos para la web. Como uso XAMPP, sería algo así:</strong></p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd"><span style="color:#719e07">copy</span> C:\pointclouds\data_converted C:\xampp\htdocs</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#719e07">copy</span> C:\pointclouds\data_converted C:\xampp\htdocs</span></span></code></pre></div>
 <p>Ejemplo 1, usando PotreeConverter 1.7:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">C:\PotreeConverter_1.7<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_1 -p index</span></code></pre></div>
-<figure>
-    <img src="/images/blog/PotreeConverter1-7_ejemplo1.png"/> <figcaption>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>C:\PotreeConverter_1.7<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_1 -p index</span></span></span></code></pre></div>
+<figure><img src="/images/blog/PotreeConverter1-7_ejemplo1.png"/><figcaption>
             <h4>Ejecución en el cmd de PotreeConverter 1.7</h4>
         </figcaption>
 </figure>
 
 <p>El resultado es un director de salida &ldquo;convertido_a_potree_1&rdquo; con un archivo index.html que será visualizado en el navegador, como se muestra a continuación:</p>
-<figure>
-    <img src="/images/blog/PotreeConverter1.7_visualizando_index_1.jpg"/> <figcaption>
+<figure><img src="/images/blog/PotreeConverter1.7_visualizando_index_1.jpg"/><figcaption>
             <h4>Visualización de nube de puntos en Potree</h4>
         </figcaption>
 </figure>
 
 <p>Ejemplo 2, eligiendo el formato de salida como archivo LAZ en lugar de BINARY:
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">C:\PotreeConverter_1.7<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_2 --output-format LAZ -p index</span></code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>C:\PotreeConverter_1.7<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_2 --output-format LAZ -p index</span></span></span></code></pre></div></p>
 <p>Ejemplo 3, usando PotreeConverter 2.1:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">C:\PotreeConverter_2.1_x64_windows<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_3 -p index</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>C:\PotreeConverter_2.1_x64_windows<span style="color:#586e75">&gt;PotreeConverter.exe \nubes\odm_georeferenced_model.laz -o \xampp\htdocs\convertido_a_potree_3 -p index</span></span></span></code></pre></div>
 <p><img src="./images/blog/PotreeConverter2-1_ejemplo1.png" alt="PotreeConverter2-1_ejemplo1.png"></p>
 <p><strong>Sobre el tamaño del archivo resultante:</strong></p>
 <p>107 MB &ndash; archivo original en .LAZ</p>
@@ -137,15 +134,15 @@ PotreeConverter.exe &lt;input&gt; -o &lt;outputDir&gt; -m random
 <li>La versión 2.1 es de 10 a 50 veces más rápida, al ejecutarse sobre una unidad de estado sólido SSD.</li>
 <li>La versión 2.1 genera tres archivos, en lugar de muchos archivos y directorios, como se muestra a continuación:</li>
 </ul>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd"> Directorio de C:\xampp\htdocs\convertido_a_potree_3\pointclouds\index
-
-24/02/2021  09:05 p. m.    &lt;DIR&gt;          .
-24/02/2021  09:05 p. m.    &lt;DIR&gt;          ..
-24/02/2021  09:05 p. m.           182,050 hierarchy.bin
-24/02/2021  09:05 p. m.             2,372 metadata.json
-24/02/2021  09:05 p. m.       762,141,695 octree.bin
-               3 archivos    762,326,117 bytes
-               2 dirs  201,620,078,592 bytes libres</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span> Directorio de C:\xampp\htdocs\convertido_a_potree_3\pointclouds\index
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>24/02/2021  09:05 p. m.    &lt;DIR&gt;          .
+</span></span><span style="display:flex;"><span>24/02/2021  09:05 p. m.    &lt;DIR&gt;          ..
+</span></span><span style="display:flex;"><span>24/02/2021  09:05 p. m.           182,050 hierarchy.bin
+</span></span><span style="display:flex;"><span>24/02/2021  09:05 p. m.             2,372 metadata.json
+</span></span><span style="display:flex;"><span>24/02/2021  09:05 p. m.       762,141,695 octree.bin
+</span></span><span style="display:flex;"><span>               3 archivos    762,326,117 bytes
+</span></span><span style="display:flex;"><span>               2 dirs  201,620,078,592 bytes libres</span></span></code></pre></div>
 <h4 id="método-b-con-laspublish">Método B, con laspublish:</h4>
 <p>Con el poderosísimo LASTools, proximamente.</p>
 
