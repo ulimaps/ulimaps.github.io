@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© Copyright</copyright>
-    <lastBuildDate>Tue, 25 Jul 2023 13:58:18 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Aug 2023 14:53:07 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>020_Linea_de_comandos_uso_basico_del_CMD</title>
+      <link>https://ulimaps.github.io/blog/020_linea_de_comandos_uso_basico_del_cmd/</link>
+      <pubDate>Wed, 16 Aug 2023 14:53:07 -0600</pubDate>
+      
+      <guid>https://ulimaps.github.io/blog/020_linea_de_comandos_uso_basico_del_cmd/</guid>
+      <description>Uso básico de la línea de comandos Qué es la línea de comandos ó shell ó CMD (Command) https://es.wikipedia.org/wiki/Interfaz_de_l%C3%ADnea_de_comandos
+Es una interfaz de usuario, un programa que recibe órdenes (comandos) para otros programas o para el sistema operativo.</description>
+    </item>
+    
     <item>
       <title>Doble_culpa_y_una_calma</title>
       <link>https://ulimaps.github.io/blog/doble_culpa_y_una_calma/</link>
