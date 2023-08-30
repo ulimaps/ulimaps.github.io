@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>La_relacion_entre_libLAS_LASlib_LAStools_y_PDAL - ulisesmartin.com</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="La_relacion_entre_libLAS_LASlib_LAStools_y_PDAL" />
+<meta property="og:description" content="Qué relación hay entre libLAS, LASlib, LAStools y PDAL Como muchas historias, entorno al desarrollo del software libre, el nacimiento y desarrollo de estas herramientas tiene unas memorias interesantísimas, cual novela de ficción." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ulimaps.github.io/blog/la_relacion_entre_liblas_laslib_lastools_y_pdal/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-29T19:26:54-06:00" />
+<meta property="article:modified_time" content="2023-08-29T19:26:54-06:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="La_relacion_entre_libLAS_LASlib_LAStools_y_PDAL"/>
+<meta name="twitter:description" content="Qué relación hay entre libLAS, LASlib, LAStools y PDAL Como muchas historias, entorno al desarrollo del software libre, el nacimiento y desarrollo de estas herramientas tiene unas memorias interesantísimas, cual novela de ficción."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ulimaps.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://ulimaps.github.io/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/custom.css" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="https://ulimaps.github.io/css/custom-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://ulimaps.github.io/js/main.js"></script>
+	<script src="https://ulimaps.github.io/js/abc.js"></script>
+	<script src="https://ulimaps.github.io/js/xyz.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://ulimaps.github.io/">
+	<h1 class="site-title"><a href="https://ulimaps.github.io/">ulisesmartin.com</a></h1>
+	<div class="site-description"><h2>Esta es mi página personal. Trabajo en <a href="http://geoytopo.com">http://geoytopo.com</a></h2><nav class="nav social">
+			<ul class="flat"><a href="https://twitter.com/ulisesmartin" title="Twitter"><i data-feather="twitter"></i></a><a href="https://instagram.com/soytopografo" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/ulisesmartinibarra" title="Linkedin"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">Acerca_de</a>
+			</li>
+			
+			<li>
+				<a href="/contacto">Contacto</a>
+			</li>
+			
+			<li>
+				<a href="/categories">Categorias</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">La_relacion_entre_libLAS_LASlib_LAStools_y_PDAL</h1>
+			<div class="meta">Posted at &mdash; Aug 29, 2023</div>
+		</div>
+
+		<div class="markdown">
+			<h1 id="qué-relación-hay-entre-liblas-laslib-lastools-y-pdal">Qué relación hay entre libLAS, LASlib, LAStools y PDAL</h1>
+<p>Como muchas historias, entorno al desarrollo del software libre, el nacimiento y desarrollo de estas herramientas tiene unas memorias interesantísimas, cual novela de ficción.</p>
+<p>Justo busqué en un buscador: libLAS vs LASlib y llegué al enlace que a continuación comparto, donde cuentan un poquito de estas historia:</p>
+<p>Habla sobre la historia de cómo nació LAStools, libLAS, LASlib y PDAL. Interesante. Es como una especie de anécdota, muy entretenida.</p>
+<p>Según el siguiente <a href="https://gis.stackexchange.com/questions/306418/difference-between-lastools-liblas-and-pdal">enlace</a>, donde Howard Butler y Martin Isenburg lo explican:</p>
+<p>Howard Butler:</p>
+<figure><img src="/images/blog/Howard_Butler_87751.jpeg"
+         alt="Foto de Howard Butler"/><figcaption>
+            <h4>Foto de Howard Butler</h4>
+        </figcaption>
+</figure>
+
+<p><strong>libLAS</strong> fue desarrollado para proveer soporte de lectura/escritura para archivos LAS, modelándose en <strong>LAStools</strong>, que hasta ese momento no tenía licencia de código fuente abierto. En años subsecuentes, algunas partes de LAStools se realizaron bajo licencia de código fuente abierto, lo cual anuló la necesidad de desarrollar de forma paralela <strong>libLAS</strong>. La porción de librería de <strong>LAStools</strong> que fue desarrollada bajo código fuente abierto es llamada <strong>LASlib</strong>.</p>
+<p><strong>PDAL</strong>, era la continuación del esfuerzo de libLAS para proporcionar un conjunto de herramientas (toolkit) de procesamiento de nubes de puntos genérica con énfasis geoespacial (para diferenciarlo del <strong>PCL</strong>) que admitiera una multitud de formatos y proporcionara herramientas convenientes de orquestación y flujo de trabajo para datos. PDAL se diseño para aprovechar otros softwares (<strong>PROJ</strong> y <strong>GDAL</strong>, por ejemplo) para cosas como soporte de sistemas de coordenadas y accesos vectorial/ráster. Habla Python y Mathlab además de C/C++, y funciona en OSX, Linux y Win64.</p>
+<p>En lo que respecta a la relación de PDAL con libLAS, PDAL proporciona soporte completo para LAS (y LAZ) 1.4, mientras libLAS no. PDAL proporciona una caja de herramientas de funcionalidad mucho más rica que libLAS. Si todo lo que necesitas es soporte de LAS integrado en tu software, considerarlas utilizar LASlib o libLAS, pueden funcionarte. Si deseas algo que pueda manejar casi cualquier formato geoespacial, PDAL es tu opción. (Nota: Howard habla en pasado en esta parte, que me hace pensar algo quizás algo sobre la concepción de antes y ahora sobre PDAL habrá cambiado en algo.)</p>
+<p>Martin Isenburg:</p>
+<figure><img src="/images/blog/Martin_Isenburg_image0-446x400.jpeg"
+         alt="Foto Martin Isenburg"/><figcaption>
+            <h4>Foto Martin Isenburg</h4>
+        </figcaption>
+</figure>
+
+<p>Cuando Martin (que en paz desanse) creó el primer <strong>LAStools</strong> y la libreríaa <strong>LASlib</strong>, fueron herramientas construidas durante su Postdoctroado en la UC de Berkeley, ya que requeríaa preparar archivos LAS como datos de entrada para su investigación sobre el Procesamiento de Streaming Delaunay (o Streaming TIN). En abril de 2007 publica el código fuente de estas herramientas en su página, sin licencia, le alegraba que la gente usara su código. En 2007 Howard Butler le pregunta si podría usar <strong>LAStools</strong> como punto de partida para un proyecto de código abierto que eventualmente seríaa <strong>libLAS</strong>.</p>
+<p>Algunos años después (LAStools era hasta entonces un pasatiempo), perdió su trabajo en un laboratorio de alta seguridad en Estados Unidos, y fue detenido en un campo de deportación y al final deportado desde USA. A partir de este episodio convirtió LAStools en una suite completa de procesamiento LiDAR y LASzip en un potente compresor LiDAR.</p>
+<p>En 2012, ya siendo LAStools popular, Martin obtiene financiamiento inicial por parte de la Agencia Espacial Europea y funda la empresa <em>Rapidlasso GmbH</em> que vende licencias comerciales y académicas de LAStools. En ese punto, LASlib y LASzip, por consejo de Howard Butler, obtuvieron licencia de código abierto, hecho que hizo que libLAS fuera menos necesario. Luego Howard inicia PDAL (ver respuesta de Howard).</p>
+<p>De no ser por la seguridad de USA, segín palabras de Martin Isenburg, LAStools seguirá siendo un proyecto de pasatiempo. Este es otro ángulo sobre la razón por la que existen LAStools y PDAL y cómo se relacionan LASlib, libLAS y LASzip con ellos.</p>
+<p>En otra página, <a href="https://github.com/LAStools/LAStools/tree/master/LASlib">github de LASlib</a>:</p>
+<p><strong>LASlib</strong> (junto con LASzip) es una API de programación en C++ para leer y escribir datos LIDAR almacenados en formato LAS o en el formato comprimido LAZ (1.0 a 1.3).  Ambas librerías, , están bajo los términos de la licencia GNU Lesser General Public Licence, conocidad como LGPL.</p>
+<p>LASlib (junto con LASzip) es fácil de usar, ligero y extremadamente rápido. Sólo descarga aquí y estarás listo para usarla.</p>
+<p>El mejor camino para tener LASlib es descargar LAStools, el cual contiene la distribución completa de LASlib (junto con LASzip):</p>
+<p>wget <a href="http://www.lastools.org/download/LAStools.zip">http://www.lastools.org/download/LAStools.zip</a>
+unzip LAStools.zip
+cd LAStools/
+make</p>
+<p>Hasta aquí ahorita.</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>

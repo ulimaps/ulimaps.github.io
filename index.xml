@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© Copyright</copyright>
-    <lastBuildDate>Wed, 16 Aug 2023 14:53:07 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 19:26:54 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>La_relacion_entre_libLAS_LASlib_LAStools_y_PDAL</title>
+      <link>https://ulimaps.github.io/blog/la_relacion_entre_liblas_laslib_lastools_y_pdal/</link>
+      <pubDate>Tue, 29 Aug 2023 19:26:54 -0600</pubDate>
+      
+      <guid>https://ulimaps.github.io/blog/la_relacion_entre_liblas_laslib_lastools_y_pdal/</guid>
+      <description>Qué relación hay entre libLAS, LASlib, LAStools y PDAL Como muchas historias, entorno al desarrollo del software libre, el nacimiento y desarrollo de estas herramientas tiene unas memorias interesantísimas, cual novela de ficción.</description>
+    </item>
+    
     <item>
       <title>020_Linea_de_comandos_uso_basico_del_CMD</title>
       <link>https://ulimaps.github.io/blog/020_linea_de_comandos_uso_basico_del_cmd/</link>
