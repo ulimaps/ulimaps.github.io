@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© Copyright</copyright>
-    <lastBuildDate>Tue, 29 Aug 2023 19:26:54 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Oct 2023 23:24:30 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Organizacion curriculum y blog</title>
+      <link>https://ulimaps.github.io/blog/organizacion_curriculum_y_blog/</link>
+      <pubDate>Thu, 12 Oct 2023 23:24:30 -0600</pubDate>
+      
+      <guid>https://ulimaps.github.io/blog/organizacion_curriculum_y_blog/</guid>
+      <description>Llevo rato con la idea en la cabeza de mostrar mi portafotolio, mi curriculum y mi blog en el mismo sitio pero organizado.</description>
+    </item>
+    
     <item>
       <title>La relacion entre libLAS, LASlib, LAStools y PDAL</title>
       <link>https://ulimaps.github.io/blog/la_relacion_entre_liblas_laslib_lastools_y_pdal/</link>
