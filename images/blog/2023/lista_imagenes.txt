@@ -1,0 +1,7 @@
+IMG_20231024_archiveros_1.jpg
+IMG_20231024_carpeta_1.jpg
+IMG_20231024_field_notes_1.jpg
+IMG_20231024_field_notes_2.jpg
+IMG_20231024_librero_1.jpg
+IMG_20231024_librettitas_1.jpg
+lista_imagenes.txt
