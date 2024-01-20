@@ -7,33 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© Copyright</copyright>
-    <lastBuildDate>Tue, 24 Oct 2023 13:49:46 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Oct 2023 13:49:46 -0600</lastBuildDate>
+    <atom:link href="https://ulimaps.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>organizacion</title>
       <link>https://ulimaps.github.io/categories/organizacion/</link>
       <pubDate>Tue, 24 Oct 2023 13:49:46 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/categories/organizacion/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>eleccion del camino profesional</title>
       <link>https://ulimaps.github.io/categories/eleccion-del-camino-profesional/</link>
       <pubDate>Tue, 25 Jul 2023 13:58:18 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/categories/eleccion-del-camino-profesional/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>activismo</title>
       <link>https://ulimaps.github.io/categories/activismo/</link>
       <pubDate>Sun, 27 Nov 2022 21:37:56 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/categories/activismo/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

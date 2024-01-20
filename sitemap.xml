@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ulimaps.github.io/blog/20231024_la_organizacion_en_una_persona_dispera/</loc>
-    <lastmod>2023-10-24T13:49:46-06:00</lastmod>
-  </url><url>
     <loc>https://ulimaps.github.io/blog/</loc>
+    <lastmod>2024-01-19T16:19:19-06:00</lastmod>
+  </url><url>
+    <loc>https://ulimaps.github.io/blog/curso-dtm-desde-nube-de-puntos-en-tuxtla-para-ing-hector-guillen/</loc>
+    <lastmod>2024-01-19T16:19:19-06:00</lastmod>
+  </url><url>
+    <loc>https://ulimaps.github.io/</loc>
+    <lastmod>2024-01-19T16:19:19-06:00</lastmod>
+  </url><url>
+    <loc>https://ulimaps.github.io/blog/20231024_la_organizacion_en_una_persona_dispera/</loc>
     <lastmod>2023-10-24T13:49:46-06:00</lastmod>
   </url><url>
     <loc>https://ulimaps.github.io/categories/</loc>
@@ -18,9 +24,6 @@
     <lastmod>2023-10-24T13:49:46-06:00</lastmod>
   </url><url>
     <loc>https://ulimaps.github.io/tags/</loc>
-    <lastmod>2023-10-24T13:49:46-06:00</lastmod>
-  </url><url>
-    <loc>https://ulimaps.github.io/</loc>
     <lastmod>2023-10-24T13:49:46-06:00</lastmod>
   </url><url>
     <loc>https://ulimaps.github.io/timeline/</loc>

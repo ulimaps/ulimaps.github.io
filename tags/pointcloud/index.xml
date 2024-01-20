@@ -7,70 +7,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© Copyright</copyright>
-    <lastBuildDate>Tue, 29 Aug 2023 19:26:54 -0600</lastBuildDate><atom:link href="https://ulimaps.github.io/tags/pointcloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 19:26:54 -0600</lastBuildDate>
+    <atom:link href="https://ulimaps.github.io/tags/pointcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>La relacion entre libLAS, LASlib, LAStools y PDAL</title>
       <link>https://ulimaps.github.io/blog/la_relacion_entre_liblas_laslib_lastools_y_pdal/</link>
       <pubDate>Tue, 29 Aug 2023 19:26:54 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/la_relacion_entre_liblas_laslib_lastools_y_pdal/</guid>
-      <description>Foto de Collage de fotos libLAS LASlib ¿Qué relación hay entre libLAS, LASlib, LAStools y PDAL?
-Como en muchas historias entorno al desarrollo del software libre, el nacimiento y desarrollo de estas herramientas tiene unas memorias interesantísimas, cual novela de ficción.</description>
+      <description>Foto de Collage de fotos libLAS LASlib ¿Qué relación hay entre libLAS, LASlib, LAStools y PDAL?&#xA;Como en muchas historias entorno al desarrollo del software libre, el nacimiento y desarrollo de estas herramientas tiene unas memorias interesantísimas, cual novela de ficción.</description>
     </item>
-    
     <item>
       <title>Doble_culpa_y_una_calma</title>
       <link>https://ulimaps.github.io/blog/doble_culpa_y_una_calma/</link>
       <pubDate>Tue, 25 Jul 2023 13:58:18 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/doble_culpa_y_una_calma/</guid>
       <description>Software Libre 001 Sucio y traidor. Me ha dado tanta culpa no entregarme completamene en cuerpo y alma a la Topografía que cada que coqueteo con el software libre me he sentido un poco sucio y traidor.</description>
     </item>
-    
     <item>
       <title>LiTree_traduccion_paper</title>
       <link>https://ulimaps.github.io/blog/litree_traduccion_paper/</link>
       <pubDate>Tue, 10 Jan 2023 16:48:41 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/litree_traduccion_paper/</guid>
       <description>Observo la importancia en la vida de las personas a ser reconocidas, a ser vistas, a que se nos dé un par de palmaditas en la espalda.</description>
     </item>
-    
     <item>
       <title>Visualizar nube de puntos en web 1</title>
       <link>https://ulimaps.github.io/blog/visualizar_nube_de_puntos_en_web_1/</link>
       <pubDate>Sat, 26 Mar 2022 11:53:12 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/visualizar_nube_de_puntos_en_web_1/</guid>
       <description>PotreeConverter y los 3 pasos para visualizar una nube de puntos en el navegador Usando PotreeConverter o LAStools podemos convertir un archivo LAS a uno que permita ser visto desde un navegador.</description>
     </item>
-    
     <item>
       <title>Dudas de la estructura de un archivo LAS 1</title>
       <link>https://ulimaps.github.io/blog/dudas_de_la_estructura_de_un_archivo_las_1/</link>
       <pubDate>Mon, 14 Mar 2022 21:50:43 -0600</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/dudas_de_la_estructura_de_un_archivo_las_1/</guid>
       <description>Comparando un archivo de una nube de puntos proveniente de DJI Terra y otro archivo luego de hacerle un filtro en pdal (filters.</description>
     </item>
-    
     <item>
       <title>Medir desplazamientos horizontales y verticales en nubes de puntos LIDAR 1</title>
       <link>https://ulimaps.github.io/blog/medir_desplazamientos_horizontales_y_verticales_en_nubes_de_puntos_lidar_1/</link>
       <pubDate>Tue, 07 Sep 2021 15:15:54 -0500</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/medir_desplazamientos_horizontales_y_verticales_en_nubes_de_puntos_lidar_1/</guid>
       <description>¿Sabes cómo medir los desplazamientos horizontales y verticales en nubes de puntos LIDAR? A continuación te platico la primer parte de un procedimiento para hacerlo.</description>
     </item>
-    
     <item>
       <title>Por donde empiezo a estudiar LIDAR</title>
       <link>https://ulimaps.github.io/blog/por_donde_empiezo_a_estudiar_lidar/</link>
       <pubDate>Sun, 08 Aug 2021 08:21:04 -0500</pubDate>
-      
       <guid>https://ulimaps.github.io/blog/por_donde_empiezo_a_estudiar_lidar/</guid>
       <description>Cuando no sabes por dónde comenzar a estudiar sobre LIDAR por tu cuenta. Estos 4 puntos de cómo abordar el tema del LIDAR los comparto porque a veces uno no sabe por donde empezar.</description>
     </item>
-    
   </channel>
 </rss>
