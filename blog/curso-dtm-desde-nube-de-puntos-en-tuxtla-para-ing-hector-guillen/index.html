@@ -79,7 +79,7 @@
 		</div>
 
 		<div class="markdown">
-			<p>El Domingo 8 de enero de 2024 salí rumbo a Tuxtla Gutiérrez, Chiapas al rededor de las 20 horas. Llegué a Tuxtla cerca de las 22 horas y fui recibido por el Ing. Héctor Alejandro en el Aeropuerto Internacional de Tuxtla. Al otro día a las 9 horas pasó por mí al Hotel el Ing. Héctor Guillen para irnos a las oficinas de ICCH. Comenzamos luego luego llegando. Los asistentes, puro ingeniero: Ing. Isela, Ing. Ramón, Ing, Héctor Alejandro, Ing. Diego y se daba su vueltas el Ing. Héctor Guillen quien trata de ser omnipresente para cuidar el buen desarrollo de su empresa.</p>
+			<p>El Domingo 8 de enero de 2024 salí rumbo a Tuxtla Gutiérrez, Chiapas al rededor de las 20 horas. Llegué a Tuxtla cerca de las 22 horas y fui recibido por el Ing. Héctor Alejandro en el Aeropuerto Internacional de Tuxtla. Al otro día a las 9 horas pasó por mí al Hotel el Ing. Héctor Guillen para irnos a las oficinas de ICCH. Comenzamos luego luego llegando. Los asistentes, puro ingeniero: Ing. Isela, Ing. Ramón, Ing, Héctor Alejandro e Ing. Diego y se daba sus vueltas el Ing. Héctor Guillen, quien trata de ser omnipresente para cuidar el buen desarrollo de su empresa.</p>
 <figure><img src="/images/blog/2024/IMG_20240110_curso_DTM_Tuxtla-1.jpg"
          alt="Foto de último día de capacitación"/><figcaption>
             <h4>De izquierda a derecha: Ingenieros Héctor Alejandro, Ramón, Isela, Diego y yo Ulises</h4>
@@ -88,12 +88,13 @@
 
 <p>Fueron  tres días seguidos para sumar al rededor de las 20 horas de capacitación. Lo dividimos como sigue:</p>
 <h2 id="día-1">Día 1</h2>
-<p>Obtuvimos el DTM desde una nube de puntos fotogramétrica. Fue un acercamiento siguiendo una metodología sin mayores complicaciones.</p>
+<p>Obtuvimos el DTM desde una nube de puntos fotogramétrica. Fue un acercamiento siguiendo una metodología sencilla y sin mayores complicaciones.</p>
 <ul>
-<li>Les expliqué qué software íbamos a usar y sus licencias. Para el procesamiento principalmente LAStools. Visitamos la página, revisamos el costo, lo descargamos, lo instalamos y comenzamos la metodología: crear una carpeta dentro de la carpeta de LAStools &ldquo;dsm_to_dtm&rdquo; y dentro de ésta otras carpetas donde iríamos colocando nubes resultado de procesamientos. Fue sencillo y rápido.</li>
-<li>Una vez terminado la primer práctica para obtener el DTM y de ir revisando los parámetros de cada comando que utilizamos, procedimos a ver tantito sobre pdal y el funcionamiento de un filtro para obtención de suelo desnudo.</li>
-<li>Así que instalamos pdal, usando Anaconda, luego revisamos la igualmente la licencia e intentamos hacer un cambio de datum vertical, pero desafortunadamente algo habrá cambiando en el código de pdal que no tuvimos éxito de cambiar de alturas de una nube de puntos de alturas elipsoidales a alturas ortométricas, utilizando las deflexiones del geoide provistas en un archivo del geoide gravimétrico mexicano. Así que esta parte, una vez que yo vuelva a lograr esa transformación, les pasaré al archivo JSON y simplemente tendrán que ejecutar un simple: pdal pipeline &lt;nombre_del_archivo.json&gt;</li>
-<li>Luego, revisamos qué era lo que hacía un filtro para para obtener el suelo desnudo, en concreto el Filtro Morfológico Simple que utiliza pdal, qué parámetros tiene (radio de la ventana, pendiente máxima, tamaño del pixel de la superficie mínima, y el mentado umbral de elevación y cómo se calcula el mismo según los parámetros anteriores) y cual es la parte crucial de este filtro: las superficie mínima inicial. Revisamos las operaciones morfológicas de apertura y cierre, compuestas por la aplicación de una erosión y una dilatación en el primer caso y en el segundo caso justo lo contrario. La evaluación de hacer una diferencia o resta entre las superficie mínima y una segunda superficie &ldquo;aperturada morfológicamente&rdquo; y comparar el resultado con el umbral de elevación, dando como resultado que los puntos incluidos dentro del pixel de la superficie aperturada sean considerados suelo u objeto.</li>
+<li>Les expliqué qué software íbamos a usar y sus licencias. Para el procesamiento usamos principalmente LAStools. Visitamos la página, revisamos el costo, descargamos el software, lo instalamos y comenzamos la metodología. Comenzamos con lo típico: crear una carpeta llamada &ldquo;dsm_to_dtm&rdquo;, que estaría dentro de la carpeta de LAStools. Y ahí dentro de ésta &ldquo;dsm_to_dtm&rdquo; habría otras carpetas donde iríamos colocando las nubes resultantes de cada parte del procesamientos. Fue sencillo y rápido.</li>
+<li>Una vez terminada la primer práctica para obtener el DTM y de ir revisando los parámetros de cada comando que utilizamos, procedimos a conocer un poquito sobre el software llamdo &ldquo;pdal&rdquo; y el funcionamiento de un filtro para obtención de suelo desnudo.</li>
+<li>Así que instalamos pdal usando Anaconda, luego revisamos igualmente la licencia e intentamos hacer un cambio de datum vertical, pero desafortunadamente algo habrá cambiando en el código de pdal que no tuvimos éxito en el cambio de alturas de una nube de puntos, es decir: de alturas elipsoidales a alturas ortométricas. Esto lo haríamos utilizando las deflexiones del geoide provistas en un archivo del geoide gravimétrico mexicano. Así que esta parte quedó pendiente, y una vez que yo vuelva a lograr esa transformación les pasaré al archivo JSON y simplemente tendrán que ejecutar un comanto tan simple y sencillo como: pdal pipeline &lt;nombre_del_archivo.json&gt;</li>
+<li>Luego, revisamos qué era lo que hacía un filtro para para obtener el suelo desnudo, en concreto el Filtro Morfológico Simple que utiliza pdal, qué parámetros tiene (radio de la ventana, pendiente máxima, resolución del DEM inicial ó tamaño del pixel de la superficie mínima y el umbral de elevación, así cómo la manera en cómo se calcula el mismo según los parámetros anteriores) y cual es la parte crucial de este filtro: las superficie mínima inicial.</li>
+<li>Para entender el filtro también revisamos las operaciones morfológicas de apertura y cierre, compuestas por la aplicación de proceso de erosión y una dilatación en el primer caso y en el segundo caso justo lo contrario. La evaluación de qué es objeto y que pudiera suelo desnudo, consiste en hacer una diferencia o resta entre las superficie mínima y una segunda superficie &ldquo;aperturada morfológicamente&rdquo; y comparar el resultado respecto al umbral de elevación, dando como resultado que si los puntos incluidos dentro del pixel serán objeto si (ZImin- Sup(apeturada))&gt; umbral elevación.</li>
 <li>Teniendo una idea de cómo funciona un filtro para obtener suelo desnudo podríamos entender cómo funcionaría, de forma semejante no igual, el filtro que maneja el comando &ldquo;lasground&rdquo; de LAStools.</li>
 </ul>
 <figure><img src="/images/blog/2024/Tomada_por_Ing_H%c3%a9ctor_curso_DTM_Tuxtla-2.jpg"
@@ -105,12 +106,12 @@
 <h2 id="día-2">Día 2</h2>
 <p>Hicimos nuevamente una práctica para obtener el suelo desnudo pero con algunas variantes:</p>
 <ul>
-<li>Usamos una nube de puntos LIDAR producto de un vuelo sobre Matrix 300 con sensor LIDAR L1.</li>
+<li>Usamos una nube de puntos LIDAR producto de un vuelo de un Matrix 300 de DJI transportando un sensor LIDAR L1.</li>
 <li>Revisamos una metodología que expliqué en un video de youtube, donde reconocimos los pasos y la razón de ser los mismos, para obtener el DTM de la práctica del día 1.</li>
-<li>Replanteé la estructura y localización del directorio de trabajo, utilizando un para de dígitos en el nombre de cada directorio además del nombre del directorio que hace alusión a su contenido, con la finalidad de tener una mejor organización.</li>
+<li>Replanteé la estructura y localización del directorio de trabajo, utilizando un par de dígitos en el nombre de cada directorio además del nombre del directorio que hace alusión a su contenido, con la finalidad de tener una mejor organización.</li>
 <li>Utilizamos pasos y comandos adicionales con la finalidad de obtener un suelo que pudiera ser considerado como &ldquo;suelo medio&rdquo; entre un &ldquo;suelo esponjoso&rdquo;.</li>
-<li>Analizamos la importancia de contar con una buena densidad de puntos por metro cuadrado, al momento de hacer el levantamiento.</li>
-<li>Nos faltó un poquito para concluir la metodología, sólo un par de pasos: un muestreo de suelo medio y su exportación de archivo LAS a archivo CSV.</li>
+<li>Analizamos la importancia de contar con una buena densidad de puntos por metro cuadrado al momento de hacer el levantamiento.</li>
+<li>Este día nos faltó un poquito para concluir la metodología, sólo un par de pasos: un muestreo de suelo medio y su exportación de archivo LAS a archivo CSV.</li>
 </ul>
 <figure><img src="/images/blog/2024/Tomada_por_Ing_Isela_curso_DTM_Tuxtla-3.jpg"
          alt="Capacitación DTM desde nube de puntos Tuxtla"/><figcaption>
@@ -119,11 +120,12 @@
 </figure>
 
 <h2 id="día-3">Día 3</h2>
-<p>Última sesión. Se trata de hacer una práctica de las herramientas generales para manipular una nube de puntos.</p>
+<p>Última sesión. Este día trató más que nada de hacer una práctica de las herramientas generales para manipular una nube de puntos.</p>
 <ul>
-<li>Comenzamos en donde nos quedamos el día anterior. Terminando la práctica de obtener el suelo medio de la nube de puntos. Utilizamos CloudCompare para hacer el muestreo y la exportación a CSV. Importamos el resultado a Civil3d.</li>
+<li>Comenzamos en donde nos quedamos el día anterior. Terminando los dos pasos de la práctica anterior para obtener el suelo medio de la nube de puntos. Utilizamos CloudCompare para hacer el muestreo y la exportación a CSV. Lo hicimos en CloudCompare no porque fuera dificil hacerlo con LAStools, si no para mostrar un camino adicional. Luego importamos el resultado a Civil3d.</li>
 <li>Para la práctica de herramientas para manipular nubes de puntos, usamos una nueva nube de puntos LIDAR.</li>
-<li>La caja de herramientas fue igualmente LAStools, aunque también visualizamos con CloudCompare. Importamos la nube de puntos a qgis y trazamos un polígono para exportarlo al formato SHP, que nos serviría como polígono de recorte desde LAStools.</li>
+<li>Utilizamos LAStools desde qgis, para probar una manera diferente de ejecturar los comandos además de la Linea de Comandos de Windows.</li>
+<li>Aunque za caja de herramientas fue igualmente LAStools, también visualizamos con CloudCompare. Además importamos la nube de puntos a qgis y trazamos un polígono para exportarlo a formato SHP, el cuál nos serviría como polígono de recorte desde LAStools.</li>
 <li>Practicamos con todas las herramientas programadas para el curso: visualización, leer metadatos, recortar la nube de puntos, teselear, juntar o unir, trasladar en xyz, rotar teniendo como base un punto pivote y un ángulo de giro y exportar a TXT y CSV con las columnas de información de nuestra elección: xyz, RGB, intensidad, tiempo GPS, etc.</li>
 </ul>
 <figure><img src="/images/blog/2024/Tomada_por_Ing_Isela_curso_DTM_Tuxtla-4.jpg"
@@ -132,7 +134,7 @@
         </figcaption>
 </figure>
 
-<p>Y así se desarrolló el curso de capacitación de Obtención de DTM desde una nube de puntos. Este formato de curso es el más completo que imparto. Al finalizar el curso me dieron su opinión sobre el desarrollo y temario del mismo los ingenieros y al finalizar  me llevaron al aeropuerto y volví a mi base en la CDMX. Me siento satisfecho con el resultado. Siempre hay cosas que mejorar, por ejemplo la explicación del funcionamiento de la implementación del Filtro Morfológico Simple y el cambio del sistema de alturas en pdal. Y algunos detalles más. El maldito síndrome del impostor y el látigo de la culpa católica, no me dan paz.</p>
+<p>Y así se desarrolló el curso de capacitación de obtención de DTM desde una nube de puntos. Este formato de curso es el más completo que imparto. Al finalizar el curso les pedí su opinión sobre el desarrollo y temario del mismo a los ingenieros. Terminando con esto me llevaron al aeropuerto y volví a mi base en la CDMX. Siendo honesto me siento satisfecho con el resultado. Siempre hay cosas que mejorar, por ejemplo la explicación del funcionamiento de la implementación del Filtro Morfológico Simple y el cambio del sistema de alturas en pdal y uno que otro detallito más. Pero es que además, el maldito síndrome del impostor y el látigo de la culpa católica, no me dan paz.</p>
 <figure><img src="/images/blog/2024/Tomada_por_Ing_Isela_curso_DTM_Tuxtla-5.jpg"
          alt="Capacitación DTM desde nube de puntos Tuxtla"/><figcaption>
             <h4>De izquierda a derecha: Inges Diego e Isela, Yo, Ingenieros Héctor Alejandro y Ramón.</h4>
@@ -145,7 +147,7 @@
         </figcaption>
 </figure>
 
-<p><strong>Si están interesados en una capacitación acerca de nubes de puntos y niveles de terreno, no duden con contactarme. Pueden ver los tres cursos que tengo desarrollados en el enlace que estará aquí: ENLACE PRÓXIMAMENTE.</strong></p>
+<p><strong>Si están interesados en una capacitación acerca de nubes de puntos y niveles de terreno, no duden en contactarme. Pueden ver los tres cursos que tengo desarrollados en el enlace que estará aquí: ENLACE PRÓXIMAMENTE.</strong></p>
 
 		</div>
 
